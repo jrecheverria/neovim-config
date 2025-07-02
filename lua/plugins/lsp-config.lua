@@ -20,6 +20,9 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities
+      })
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities
       })
@@ -31,6 +34,6 @@ return {
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-    end,
-  },
+    end
+  }
 }
