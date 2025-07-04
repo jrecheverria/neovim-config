@@ -7,4 +7,5 @@ to extends its capabilities by adding syntax highlighting, code snippets, etc.
 
 ### What comes included?
 
- 
+
+
