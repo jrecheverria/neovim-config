@@ -14,16 +14,25 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
+    -- ADD THE CONFIG FUNCTION BELOW
+    config = function()
+      vim.diagnostic.config({
+        virtual_text = true, -- Enable inline error messages
+        signs = true,        -- Show icons in the sign column
+        underline = true,    -- Underline the code with issues
+        update_in_insert = false,
+        severity_sort = true,
+      })
+    end,
+    -- THE REST OF YOUR CONFIGURATION STAYS WITHIN `opts`
     opts = {
       -- This list MUST use the LSPCONFIG server names.
-      -- The plugin will translate them to Mason package names automatically.
       ensure_installed = {
-        "lua_ls",         -- Correct lspconfig name
-        "rust_analyzer",  -- This name is the same for both
-        "ts_ls",          -- Correct lspconfig name
+        "lua_ls",
+        "rust_analyzer",
+        "ts_ls",
       },
 
-      -- The handlers section remains the same, it is the correct pattern.
       handlers = {
         function(server_name) -- server_name will be "lua_ls", "ts_ls", etc.
           local lspconfig = require("lspconfig")
